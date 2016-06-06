@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>23-24</title>
+	<style>
+html, body {
+  height: 100%;
+}
+.wrapper{
+  width:500px;
+  height: auto;
+  margin: 0 auto;
+  background: #9999ff;
+  padding-bottom: 45px;
+}
+h1{
+  background: #9999ff;
+  color: #fff;
+  font-family: arial;
+  height: 45px;
+  padding: 5px 25px ;
+  line-height: 45px;
+  border-bottom: 2px solid #fff;
+}
+.item-list{
+  color: #fff;
+  font-family: arial;
+  font-size: 30px;
+  list-style-type: square;
+  width: 250px;
+  margin-left: 13px;
+}
+.item-list li{
+  height:40px;
+}
+.edit{
+  color:#ccc;
+  font-size: 25px;
+  font-family: arial;
+  width: 200px;
+}
+.item-delete{
+  cursor: pointer;
+  display: block;
+  width: 40px;
+  height: 40px;
+  float: right;
+  background-image: url('http://www.iconsdb.com/icons/preview/orange/delete-2-xxl.png');
+  background-position: center;
+  background-size: 20px;
+  background-repeat: no-repeat;
+}
+.item-value{
+  margin-left: 25px;
+  height: 30px;
+  width: 250px;
+  color:#ccc;
+  font-size: 25px;
+  font-family: arial;
+}
+button{
+  cursor: pointer;
+  width: 155px;
+  height:45px;
+  background-color: #9999ff;
+  border: 2px solid #fff;
+  background-image: url('http://www.clker.com/cliparts/x/a/M/2/L/m/dark-purple-plus-md.png');
+  background-size: 30px;
+  background-repeat: no-repeat;
+  background-position: 10px 5px;
+  color: #fff;
+  font-family: arial;
+  font-size: 25px;
+  border-radius: 25px;
+}
+button:active{
+  background-position: 11px 5px;
+  margin-left: 1px;
+}
+	</style>
+</head>
+<body>
+<script type="text/template" id="wrapper-template">
+	<div class="wrapper">
+	<h1>TO DO LIST</h1>
+	<ul class="item-list"></ul>
+	<div class="controlls">
+		<input type="text" class="item-value">
+		<button class="item-add">Add</button>
+	</div>
+</div>
+</script>
+
+<script type="text/template" id="list-template">
+	<% for (var i=0; i < data.length; i++) { %>
+	<li><span data-value="<%= data [i] %>" class="item-text"><%= data[i] %></span><!--текст задачи-->
+	<input type="text" class="edit" style="display:none"/>
+	<span data-value="<%= data [i] %>" class="item-delete"></span> <!--удаление-->
+	</li>
+	   <% }; %>
+</script>
+<script data-main="js/app.js" src="js/require.js"></script>
+</body>
+</html>
